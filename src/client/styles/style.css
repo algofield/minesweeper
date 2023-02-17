@@ -57,11 +57,56 @@ button {
 
 .square {
   flex-basis: 10%;
-  width: 0.25rem;
-  height: 2rem;
-  border: 0.125rem solid #252525;
-  background-color: #89ff53;
+  width: 0.3rem;
+  height: 3rem;
+  /* border: 0.125rem solid #fffefe; */
+  /* background-color: #aff490; */
+  background-color: #AAD750;
   text-align: center;
   padding: 0.25rem 0;
   text-shadow: 0 0.125rem 0.125rem rgba(25, 25, 25, 0.7);
+  /* box-shadow: 0 0.125rem 0.125rem rgba(25, 25, 25, 0.7); */
+}
+
+.square:nth-child(20n + 1),
+.square:nth-child(20n + 3),
+.square:nth-child(20n + 5),
+.square:nth-child(20n + 7),
+.square:nth-child(20n + 9),
+.square:nth-child(20n + 12),
+.square:nth-child(20n + 14),
+.square:nth-child(20n + 16),
+.square:nth-child(20n + 18),
+.square:nth-child(20n + 20) {
+  background-color: #A2D148;
+}
+
+.square.visible {
+  background-color: #E5C29F;
+}
+.square.visible:nth-child(20n + 1),
+.square.visible:nth-child(20n + 3),
+.square.visible:nth-child(20n + 5),
+.square.visible:nth-child(20n + 7),
+.square.visible:nth-child(20n + 9),
+.square.visible:nth-child(20n + 12),
+.square.visible:nth-child(20n + 14),
+.square.visible:nth-child(20n + 16),
+.square.visible:nth-child(20n + 18),
+.square.visible:nth-child(20n + 20) {
+  background-color: #D7B899;
+}
+
+.modal {
+  z-index: 1;
+  position:fixed;
+  width: 20rem;
+  height: 20rem;
+  background: #ffffff;
+  box-shadow: 0 0.125rem 0.125rem rgba(25, 25, 25, 0.7);
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
