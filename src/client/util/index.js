@@ -1,6 +1,6 @@
 const getMatrix = function getMatrix(n) {
   let matrix = []
-  if (n > 10) {
+  if (n >= 10) {
     // above
     matrix.push(n - 10)
     if (n % 10 !== 0) {
@@ -15,12 +15,12 @@ const getMatrix = function getMatrix(n) {
   if ((n + 1) % 10 !== 0) {
     // right
     matrix.push(n + 1)
-    if (n > 10) {
+    if (n >= 10) {
       // right above
       matrix.push(n - 9)
     }
   }
-  if (n < 89) {
+  if (n < 90) {
     //  below
     matrix.push(n + 10)
     if (n % 10 !== 0) {
@@ -48,14 +48,20 @@ const buildBoard = function buildBoard() {
     }
   }
   
-  for (let i = 0, len = board.length; i < len; i++) {
-    if (board[i] !== 'b') {
-      let matrix = getMatrix(i)
-      for (const k of matrix) {
-        if (board[k] === 'b') {
-          board[i]++
-        }
-      }
+  // for (let i = 0, len = board.length; i < len; i++) {
+  //   if (board[i] !== 'b') {
+  //     let matrix = getMatrix(i)
+  //     for (const k of matrix) {
+  //       if (board[k] === 'b') {
+  //         board[i]++
+  //       }
+  //     }
+  //   }
+  // }
+  for (const i of bombLocs) {
+    let matrix = getMatrix(i)
+    for (const k of matrix) {
+      if(board[k] !== 'b') board[k]++
     }
   }
   return board
@@ -88,4 +94,4 @@ const walkBoard = function walkBoard(board, index) {
   return zeros.concat(nonZeros)
 }
 
-export default { buildBoard, walkBoard }
+export default { buildBoard, walkBoard, getMatrix }
