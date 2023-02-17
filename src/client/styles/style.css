@@ -31,16 +31,37 @@ body {
   display: flex;
   justify-content: space-evenly;
   width: 20rem;
+  margin: 2rem 0 1rem 0;
 }
 
-button,
+button {
+  border: none;
+}
+
 .btn {
   font-size: 1.5rem;
-  border: none;
   border-radius: 0.125rem;
   padding: 0.5rem 1rem;
   background-color: #252525;
   color: white;
   box-shadow: 0 0.125rem 0.125rem rgba(25, 25, 25, 0.7);
   text-shadow: 0 0.125rem 0.125rem rgba(250, 250, 250, 0.7);
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0 2rem 0;
+  box-shadow: 0 0.125rem 0.125rem rgba(25, 25, 25, 0.7);
+}
+
+.square {
+  flex-basis: 10%;
+  width: 0.25rem;
+  height: 2rem;
+  border: 0.125rem solid #252525;
+  background-color: #89ff53;
+  text-align: center;
+  padding: 0.25rem 0;
+  text-shadow: 0 0.125rem 0.125rem rgba(25, 25, 25, 0.7);
 }
