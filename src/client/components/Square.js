@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Square = function Square ({ value, isVisible, onClick }) {
+const Square = function Square ({ value, flag, isVisible, onClick }) {
   const style = isVisible ? `square visible` : `square`
 
   return (
     <button className={style} onClick={onClick}>
-      {isVisible ? value : ''}
+      {flag ? flag : isVisible ? value === 'b' ? '💣' : value : ''}
     </button>
   )
 }
