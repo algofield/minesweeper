@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../styles/style.css'
-import buildBoard from '../util'
+import utils from '../util'
 import Board from './Board'
 
 
@@ -8,7 +8,7 @@ const App = function App(props) {
   let [count, updateCount] = useState(0)
 
   // let squares = Array.from({ length: 100 }, (_, i) => i)
-  let squares = buildBoard()
+  let squares = utils.buildBoard()
 
   let clickHandler = (index) => console.log(index)
 

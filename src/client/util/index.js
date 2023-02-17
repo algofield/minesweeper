@@ -53,7 +53,6 @@ const buildBoard = function buildBoard() {
       let matrix = getMatrix(i)
       for (const k of matrix) {
         if (board[k] === 'b') {
-          
           board[i]++
         }
       }
@@ -62,10 +61,31 @@ const buildBoard = function buildBoard() {
   return board
 }
 
-export default buildBoard
+const walkBoard = function walkBoard(board, index) {
+  let zeros = []
+  let nonZeros = []
+  zeros.push(index)
+  if (board[index] > 0 || board[index] === 'b') {
+    return zeros
+  }
+  let matrix = getMatrix(index)
+  let wasUpdated = false
+  do {
+    wasUpdated = false
+    for (const j of zeros) {
+      matrix = getMatrix(j)
+        .filter(i => board[i] > 0 ? !nonZeros.includes(i) : !zeros.includes(i))
+      for (const k of matrix) {
+        wasUpdated = true
+        if (board[k] > 0) {
+          nonZeros.push(k)
+        } else {
+          zeros.push(k)
+        }
+      }
+    }
+  } while (wasUpdated)
+  return zeros.concat(nonZeros)
+}
 
-// for (let i = 90, len = 100; i < len; i++) {
-//   console.log(i, getMatrix(i))
-
-// }
-// console.log(buildBoard())
+export default { buildBoard, walkBoard }
