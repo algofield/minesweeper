@@ -47,21 +47,13 @@ const buildBoard = function buildBoard() {
       board[randIndex] = 'b'
     }
   }
-  
-  // for (let i = 0, len = board.length; i < len; i++) {
-  //   if (board[i] !== 'b') {
-  //     let matrix = getMatrix(i)
-  //     for (const k of matrix) {
-  //       if (board[k] === 'b') {
-  //         board[i]++
-  //       }
-  //     }
-  //   }
-  // }
+
   for (const i of bombLocs) {
     let matrix = getMatrix(i)
     for (const k of matrix) {
-      if(board[k] !== 'b') board[k]++
+      if(board[k] !== 'b') {
+        board[k]++
+      }
     }
   }
   return board
